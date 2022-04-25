@@ -1,4 +1,4 @@
-name: .NET
+name: BuildAndTest
 
 on:
   push:
@@ -20,6 +20,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
+      working-directory: ./Behavioral.Automation.DemoScenarios
       run: dotnet build -c Release --no-restore
     - name: Test
+      working-directory: ./Behavioral.Automation.DemoScenarios
       run: dotnet test --no-build --verbosity normal
